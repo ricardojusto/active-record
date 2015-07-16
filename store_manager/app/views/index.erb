@@ -1,0 +1,28 @@
+<h1>Home Page</h1>
+
+<div class="product-new">
+<form method='post' action='product/new'>
+	<input type="text" name="name" placeholder="Name of the product">
+	<input type="text" name="description" placeholder="The description">
+	<input type="text" name="price" placeholder="Price">
+	<button type="submit">Create</button>
+</form>
+</div>
+
+<h2>Your products</h2>
+
+<div class="product-list">
+	<ul>
+	<% @product.each do |product| %>
+	<li>
+	PRODUCT NAME:<br>
+	<%= product.name %><br>
+	PRODUCT DESCRIPTION:<br>
+	<%= product.description %><br>
+	PRODUCT PRICE:<br>
+	<%= product.price %><br>
+	<a href="/edit/<%= product.id %>">Edit</a>
+	<p></p>
+	</li>
+	<% end %>
+</div>

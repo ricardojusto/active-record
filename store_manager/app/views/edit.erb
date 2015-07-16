@@ -1,0 +1,28 @@
+
+<h2>Edit Your Product</h2>
+
+<div class="edit-product">
+	<form method='post' action='/edit/<%= @product.id %>'>
+		
+	<label>
+		Name:
+		<input type="text" name="name" value="<%= @product.name %>">
+	</label>
+	<br>
+
+	<label>
+		Description:
+		<input type="text" name="description" value="<%= @product.description %>">
+	</label>
+	<br>
+
+	<label>
+		Price:
+		<input type="text" name="price" value="<%= @product.price %>">
+	</label>
+	<br>
+
+	<button type="submit">Edit</button>
+
+	</form>
+</div>

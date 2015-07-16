@@ -1,0 +1,35 @@
+<h1>TO-DO</h1>
+
+<div class="todo-form">
+	<form action="/todos/create" method="post"> 
+		<input type="text" name="title" placeholder="Insert Your ToDo Here!">
+		<button type="submit">Add new todo</button>
+	</form>
+</div>
+<!-- depois de criado o form criamos a rota para recebermos a informacao -->
+
+<div class="todos-list">
+	<h2>Not Complete</h2>
+	<% @not_complete_todos.each do |todo| %>
+		<div class="todo">
+			<%= todo.title %>
+			-
+			<%= todo.complete %>
+			<a href="/todos/<%= todo.id %>/toggle">Toggle</a>
+			<a href="/todos/<%= todo.id %>/remove">remove</a>
+		</div>
+	<% end %>
+</div>
+
+<div class="todos-list">
+	<h2>Complete</h2>
+	<% @complete_todos.each do |todo| %>
+		<div class="todo">
+			<%= todo.title %>
+			-
+			<%= todo.complete %>
+			<a href="/todos/<%= todo.id %>/toggle">Toggle</a>
+			<a href="/todos/<%= todo.id %>/remove">remove</a>
+		</div>
+	<% end %>
+</div>

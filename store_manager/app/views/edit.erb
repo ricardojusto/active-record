@@ -21,7 +21,19 @@
 		<input type="text" name="price" value="<%= @product.price %>">
 	</label>
 	<br>
-
+	<label>
+		Category:<%= @product.category.name %>
+	<br>
+		
+			<select name="category" >
+				<option>Select Category</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+				<% end %>
+			</select>
+		
+	</label>
+	<br>
 	<button type="submit">Edit</button>
 
 	</form>

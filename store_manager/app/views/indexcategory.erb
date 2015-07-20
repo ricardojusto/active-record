@@ -1,1 +1,28 @@
 <h1>Categories Page</h1>
+
+<div class="category-new">
+<form method='post' action='category/new'>
+	<input type="text" name="name" placeholder="Name of the category">
+	<button type="submit">Create</button>
+</form>
+</div>
+
+<h2>Your categories</h2>
+
+<div class="category-list">
+	<ul>
+		<% @category.each do |category| %>
+		<li>
+		category NAME:<br>
+		<%= category.name %><br>
+		<a href="/edit/category/<%= category.id %>">Edit</a>
+		<a href="/remove/category/<%= category.id %>">Delete</a>
+			<ul>
+				
+				
+			</ul>
+		<p></p>
+		</li>
+		<% end %>
+	</ul>
+</div>

@@ -1,0 +1,22 @@
+<h1>My Blog</h1>
+
+<h2> New Post:</h2>
+
+<div class="input_post">
+	<form method="post" action="/index">
+		<input type="text"	name="title" placeholder="Your title"><br>
+		<input type="text" name="body" placeholder="Your post"><br>
+		<button type="submit">Post</button>
+</div>
+<h2> These are your posts:</h2>
+<ul class="blog-post">
+  <% @posts.each do |post| %>
+	<li class="post-body">		
+		<h3><%= post.title %></h3><br>
+		<%= post.body.truncate(40) %><br>
+		<a href="/show/<%= post.id %>">Show More</a>
+		<a href="/edit/<%= post.id %>">Edit</a>
+	</li><br>
+  <% end %>
+</ul>
+

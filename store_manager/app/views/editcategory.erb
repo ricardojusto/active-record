@@ -1,0 +1,14 @@
+<h2>Edit Your Category</h2>
+
+<div class="edit-category">
+	<form method='post' action='/edit/category/<%= @category.id %>'>
+		
+	<label>
+		Name:
+		<input type="text" name="name" value="<%= @category.name %>">
+	</label>
+	<br>
+	<button type="submit">Edit</button>
+
+	</form>
+</div>

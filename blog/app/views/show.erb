@@ -1,0 +1,20 @@
+<h1>Your Post details</h1>
+
+<div class="post-body">		
+	<h3><%= @post.title %></h3><br>
+	<%= @post.body %><br>
+	<p></p>
+	<%= @post.created_at.strftime("Created at: %Hh%M of %F")%> >>
+	<%= @post.updated_at.strftime("Updated at: %Hh%M of %F")%><br>
+	
+</div><br>
+
+<h2>Create your comment:</h2>
+<p>
+	<form method="post" action="/show/<%= @post.id %>">
+		<input type="text" name"comment" placeholder="Your comment">
+		<button type="submit">Comment</button>
+	</p>
+
+<h3>Comments:</h3>
+

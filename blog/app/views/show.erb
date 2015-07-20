@@ -1,23 +1,30 @@
-<h1>Your Post details</h1>
+<div class="show-page">
+	<h1 class="show-title">Your Post details</h1>
 
-<div class="post-body">		
-	<h3><%= @post.title %></h3><br>
-	<%= @post.body %><br>
-	<p></p>
-	<%= @post.created_at.strftime("Created at: %Hh%M of %F")%> >>
-	<%= @post.updated_at.strftime("Updated at: %Hh%M of %F")%><br>
-	
-</div><br>
-
-<h2>Create your comment:</h2>
-<p>
-	<form method="post" action="/show/<%= @post.id %>">
-		<input type="text" name="comment" placeholder="Your comment">
-		<button type="submit">Comment</button>
-	</p>
-
-<h3>Comments:</h3>
-
-	<% @post.comments.each do |comment| %>
-		<%= comment.comment %><br>
-		<% end %>
+	<div class="post-body">		
+		<h3><%= @post.title %></h3><br>
+			<%= @post.body %><br>
+			<p></p>
+			<%= @post.created_at.strftime("Created at: %Hh%M of %F")%> >>
+			<%= @post.updated_at.strftime("Updated at: %Hh%M of %F")%><br>	
+	<h2>Create your comment:</h2>
+		<p>
+			<form method="post" action="/show/<%= @post.id %>">
+			  <textarea rows="10" cols="50"
+				class="comment-box" type="text" name="comment" placeholder="Your comment"></textarea><br>
+			<button type="submit">Comment</button>
+		</p>
+	<h3>Comments:</h3>
+		<ul>
+			<% @post.comments.each do |comment| %>
+				<li class="comment"> 
+						<%= comment.comment %><br>
+						<div class="comment-create">
+							<%= comment.created_at.strftime(
+							"Created at: %Hh%M of %F")%>
+						</div>
+				</li>
+			<% end %>
+		</ul>
+</div>
+					<!-- 	<textarea rows="15" cols="60"></textarea> -->

@@ -1,6 +1,5 @@
 get '/' do
 	@posts = Post.all
-	@comments = Comment.where(post_id: params[:id]).size
 	erb :index
 end	
 
@@ -35,5 +34,10 @@ post '/edit/:id' do
 		title: params[:title],
 		body: params[:body]
 		})
+	redirect '/'
+end
+
+get '/delete/:id' do
+	Post.destroy(params[:id])
 	redirect '/'
 end

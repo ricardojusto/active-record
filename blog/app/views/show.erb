@@ -12,9 +12,12 @@
 <h2>Create your comment:</h2>
 <p>
 	<form method="post" action="/show/<%= @post.id %>">
-		<input type="text" name"comment" placeholder="Your comment">
+		<input type="text" name="comment" placeholder="Your comment">
 		<button type="submit">Comment</button>
 	</p>
 
 <h3>Comments:</h3>
 
+	<% @post.comments.each do |comment| %>
+		<%= comment.comment %><br>
+		<% end %>

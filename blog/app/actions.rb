@@ -18,10 +18,10 @@ get '/show/:id' do
 end
 
 post '/show/:id' do
-	Comment.create({
-		comment: params[:comment]
-		})
-	redirect '/show/:id'
+	@posts = Post.find(params[:id])
+	Comment.create(comment: params[:comment],
+		post_id: params[:id])
+	redirect "/show/#{params[:id]}"
 end
 
 get '/edit/:id' do

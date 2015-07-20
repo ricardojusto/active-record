@@ -1,6 +1,6 @@
 get '/' do
 	@posts = Post.all
-
+	@comments = Comment.where(post_id: params[:id]).size
 	erb :index
 end	
 
